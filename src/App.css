@@ -49,6 +49,14 @@
   color: transparent;
   font-family: Snell Roundhand, cursive;
 }
+.backgroundColor {
+  background: -webkit-linear-gradient(
+    1deg,
+    #ff8e53 0%,
+    #fe6b7f 30%,
+    /*#fe6b8b 90%,*/ #fd1d62 100%
+  );
+}
 .deleteIcon:hover {
   background: -webkit-linear-gradient(
     1deg,
@@ -58,4 +66,7 @@
     /*#fe6b8b 90%,*/ #fd1d62 100%
   );
   transition: 0.3s;
+}
+::-webkit-scrollbar {
+  width: 10px;
 }

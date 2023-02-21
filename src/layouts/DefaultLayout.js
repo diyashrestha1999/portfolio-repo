@@ -12,6 +12,8 @@ import {
   ListItem,
   ListItemText,
   Divider,
+  CardActions,
+  Stack,
   // CardActions,
 } from "@mui/material";
 import {
@@ -22,14 +24,16 @@ import {
   Twitter,
   LocationOn,
   Email,
+  FileDownload,
 } from "@mui/icons-material";
 
 import { IconButton } from "@mui/material";
 
-import backGroundImage from "../img/bookight.jpg";
+// import backGroundImage from "../img/bookight.jpg";
 import backGroundDarkImage from "../img/darktheme.jpg";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
+import Button from "@mui/material/Button";
 function DefaultLayout() {
   const [darkMode, setDarkMode] = useState(false);
   const Demo = styled("div")(({ theme }) => ({
@@ -37,6 +41,7 @@ function DefaultLayout() {
     borderRadius: 20,
     paddingTop: 15,
     paddingBottom: 15,
+    marginTop: 12,
   }));
 
   const theme = createTheme({
@@ -51,9 +56,8 @@ function DefaultLayout() {
       <Box
         sx={{
           p: 2,
-          backgroundImage: darkMode
-            ? `url(${backGroundDarkImage})`
-            : `url(${backGroundImage})`,
+          backgroundImage: darkMode ? `url(${backGroundDarkImage})` : "",
+          // : `url(${backGroundImage})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center center",
           backgroundSize: "cover",
@@ -61,14 +65,23 @@ function DefaultLayout() {
           minHeight: "100vh",
           display: "flex",
           fontFamily: "Monospace",
+          backgroundColor: "grey.200",
         }}
       >
-        <Box sx={{ height: "100hv", width: "15%" }}></Box>
         <Box
           sx={{
             height: "100hv",
-            width: "70%",
+            flex: { sm: "15%" },
+            display: { xs: "none", sm: "block" },
+          }}
+        ></Box>
+        <Box
+          sx={{
+            height: "100hv",
+            width: "100%",
             overflowY: "scroll",
+            flex: { sm: "70%" },
+
             // backgroundColor: "grey.600",
           }}
         >
@@ -102,6 +115,11 @@ function DefaultLayout() {
             sx={{
               // backgroundColor: "grey.900",
               height: "80%",
+              overflowY: "scroll",
+              width: "100%",
+              display: "block",
+              alignItems: "flex-start",
+              flexWrap: "nowrap",
             }}
           >
             <div
@@ -110,6 +128,7 @@ function DefaultLayout() {
                 maxWidth: 420,
                 position: "relative",
                 height: "100%",
+                overflowY: "scroll",
               }}
             >
               <Card
@@ -120,8 +139,8 @@ function DefaultLayout() {
                   fontWeight: "700",
                   position: "absolute",
                   top: 150,
-                  height: "78%",
-                  overflowY: "scroll",
+                  // height: "78%",
+                  // overflowY: "scroll",
                   width: "100%",
                 }}
               >
@@ -135,7 +154,7 @@ function DefaultLayout() {
                 <CardContent
                   sx={{
                     // backgroundColor: "grey.100",
-                    overflowY: "scroll",
+                    // overflowY: "scroll",
                     justifyContent: "center",
                     alignItems: "center",
 
@@ -162,6 +181,7 @@ function DefaultLayout() {
                   >
                     Front-end Developer
                   </Typography>
+
                   <Typography
                     sx={{
                       textAlign: "center",
@@ -226,6 +246,7 @@ function DefaultLayout() {
                       />
                     </IconButton>
                   </Typography>
+
                   <Demo>
                     <List sx={{ p: 0 }}>
                       <ListItem>
@@ -300,6 +321,27 @@ function DefaultLayout() {
                     </List>
                   </Demo>
                 </CardContent>
+                <CardActions
+                  sx={{
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: 0,
+                  }}
+                >
+                  <Stack spacing={2} direction="row">
+                    <Button
+                      className="backgroundColor"
+                      sx={{
+                        borderRadius: 8,
+                        padding: 2,
+                        color: "#fff",
+                      }}
+                    >
+                      <FileDownload sx={{ mr: 1 }}></FileDownload>
+                      Download CV
+                    </Button>
+                  </Stack>
+                </CardActions>
               </Card>
               <CardMedia
                 alt="green iguana"
@@ -317,9 +359,24 @@ function DefaultLayout() {
                 }}
               ></CardMedia>
             </div>
+            <div
+              style={{
+                backgroundColor: "#000",
+                maxWidth: 420,
+                position: "relative",
+                height: "100%",
+                overflowY: "scroll",
+              }}
+            ></div>
           </Box>
         </Box>
-        <Box sx={{ height: "100hv", width: "15%" }}></Box>
+        <Box
+          sx={{
+            height: "100hv",
+            flex: { sm: "15%" },
+            display: { xs: "none", sm: "block" },
+          }}
+        ></Box>
       </Box>
     </ThemeProvider>
   );
